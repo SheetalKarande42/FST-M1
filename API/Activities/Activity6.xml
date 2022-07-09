@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="4533557f-8e10-4aaa-a855-0c0af85ec295" activeEnvironment="Default" name="Activity6" resourceRoot="" soapui-version="5.6.0" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:RestService" id="96bd9b4e-5a5d-4b62-a0d3-61ce99668b87" wadlVersion="http://wadl.dev.java.net/2009/02" name="http://ipwhois.app" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart=""/><con:endpoints><con:endpoint>http://ipwhois.app</con:endpoint></con:endpoints><con:resource name="IP" path="/json/{IP}" id="278b0d61-2809-4a58-9bbb-d64b10c8cc89"><con:settings/><con:parameters><con:parameter><con:name>IP</con:name><con:value>IP</con:value><con:style>TEMPLATE</con:style><con:default>IP</con:default><con:path xsi:nil="true"/><con:description xsi:nil="true"/></con:parameter></con:parameters><con:method name="IP 1" id="7022689a-2cf1-4b5b-92b1-a314fa981839" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType>application/json; charset=utf-8</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:json="http://ipwhois.app/json/">json:Response</con:element></con:representation><con:request name="Request 1" id="ae7b0349-99fc-4df3-83fd-2f186a02b639" mediaType="application/json"><con:settings/><con:endpoint>http://ipwhois.app</con:endpoint><con:request/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="IP" value="IP" xmlns="http://eviware.com/soapui/config"/></con:parameters><con:parameterOrder><con:entry>IP</con:entry></con:parameterOrder></con:request></con:method></con:resource></con:interface><con:testSuite id="3175f052-989e-43e3-8a40-33214466a24a" name="TestSuite 1"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="346b37e4-7da4-475a-bc33-6d9ae3edf20c" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TestCase 1" searchProperties="true"><con:settings/><con:testStep type="restrequest" name="REST Request" id="50872387-969e-494f-96a6-5b12772ccb7d"><con:settings/><con:config service="http://ipwhois.app" resourcePath="/json/{IP}" methodName="IP 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="REST Request" id="ae7b0349-99fc-4df3-83fd-2f186a02b639" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@bind_address"/><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://ipwhois.app</con:endpoint><con:request/><con:originalUri>http://ipwhois.app/json/</con:originalUri><con:assertion type="JsonPath Match" id="36c9ec52-f71c-410c-8b96-06b5c33723d0" name="JsonPath Match"><con:configuration><path>country</path><content>India</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="IP" value="${DataSource#address}" xmlns="http://eviware.com/soapui/config"/></con:parameters><con:parameterOrder><con:entry>IP</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:testStep type="transfer" name="Property Transfer" id="5c2c1c01-c101-43dc-ae3e-785619488357"><con:settings/><con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:testStep><con:testStep type="datasink" name="DataSink" id="318c2521-50b9-42d6-8978-7a328ad58993">
+        <con:settings/>
+        <con:config xsi:type="con:DataSinkStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:dataSink type="File">
+            <con:configuration>
+              <fileName>C:/Users/01695Z744/Documents/FSTReskilling/Workspace/FST_API/data.txt</fileName>
+              <separator>,</separator>
+              <escape>"</escape>
+              <quote>true</quote>
+              <trim>true</trim>
+              <append>false</append>
+              <encoding>Cp1252</encoding>
+            </con:configuration>
+          </con:dataSink>
+          <con:properties>
+            <con:property>
+              <con:name>petId</con:name>
+              <con:value/>
+            </con:property>
+            <con:property>
+              <con:name>petName</con:name>
+              <con:value/>
+            </con:property>
+          </con:properties>
+        </con:config>
+      </con:testStep><con:testStep type="datasourceloop" name="DataSource" id="f4975bac-a809-47b8-81dc-d4a3de72f4f0">
+        <con:settings/>
+        <con:config>
+          <dataSourceStep>DataSource</dataSourceStep>
+          <targetStep>POST Request</targetStep>
+          <discardResults>true</discardResults>
+        </con:config>
+      </con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>
